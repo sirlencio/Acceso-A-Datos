@@ -1,21 +1,21 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.Scanner;
 
 public class gestor {
+
+    //32 cada registro, asique el segundo registro empezaria en 32 (ya q empieza en 0)
+    //https://www.discoduroderoer.es/como-leer-y-escribir-un-fichero-con-randomaccessfile/
     public static void main(String[] args) throws IOException {
 
         Scanner input = new Scanner(System.in);
-        int cursor = 5;
+        int cursor = 5, id;
         do {
             menu();
             cursor = input.nextInt();
             switch (cursor) {
                 case 1:
                     System.out.println("Ingrese el id: ");
-                    int id = input.nextInt();
+                    id = input.nextInt();
                     System.out.println("Ingrese el departamento: ");
                     int depart = input.nextInt();
                     System.out.println("Ingrese el salario: ");
@@ -27,7 +27,10 @@ public class gestor {
                     }
                     break;
                 case 2:
-
+                    System.out.println("Ingrese el id: ");
+                    id = input.nextInt();
+                    leer(id);
+                    break;
             }
 
         } while (cursor != 0);
@@ -35,37 +38,74 @@ public class gestor {
 
     public static void escribir(int metido, int depart, int salario, String apellido) throws IOException {
         File fichero = new File("AleatorioEmple.dat");
-        //declara el fichero de acceso aleatorio
         RandomAccessFile file = new RandomAccessFile(fichero, "rw");
 
-        StringBuffer buffer = null; //buffer para almacenar apellido
+        int posicion = (metido - 1) * 32;
+        file.seek(posicion);
 
         file.writeInt(metido);
-        buffer = new StringBuffer(apellido);
+
+        StringBuffer buffer = new StringBuffer(apellido); //buffer para almacenar apellido
         buffer.setLength(10);
+
         file.writeChars(buffer.toString());
-        file.writeInt(depart); //insertar departamento
-        file.writeDouble(salario);//insertar salario
-        file.close(); //cerrar fichero
+        file.writeInt(depart);
+        file.writeInt(salario);
+        file.close();
     }
 
     public static boolean comprobarID(int metido) throws IOException {
         File fichero = new File("AleatorioEmple.dat");
-        RandomAccessFile file = new RandomAccessFile(fichero, "r"); //declara el fichero de acceso aleatorio
+        RandomAccessFile file = new RandomAccessFile(fichero, "r");
+
         int id, posicion;
-        posicion = 0; //para situarnos al principio
-        do { //recorro el fichero
+        posicion = (metido - 1) * 32;        //para situarnos en el id metido
+
+        try {
+            do { //recorro el fichero
+                file.seek(posicion); //nos posicionamos en posicion
+                id = file.readInt(); // obtengo id de empleado
+                if (id == metido) {
+                    System.out.println("%nEl id ya existe%n");
+                    file.close(); //cerrar fichero
+                    return true;
+                }
+                posicion = posicion + 32;
+            } while (file.getFilePointer() != file.length());
+            return false;
+        } catch (EOFException e) { //Si el archivo no tiene el id
+            return false;
+        }
+    }
+
+    public static void leer(int metido) throws IOException {
+        File fichero = new File("AleatorioEmple.dat");
+        RandomAccessFile file = new RandomAccessFile(fichero, "r"); //declara el fichero de acceso aleatorio
+        int id, dep, salario, posicion;
+        char apellido[] = new char[10], aux;
+        try {
+            posicion = (metido - 1) * 32; //para situarnos en el id
+
             file.seek(posicion); //nos posicionamos en posicion
+
             id = file.readInt(); // obtengo id de empleado
-            if (id == metido) {
-                System.out.println("El id ya existe");
-                file.close(); //cerrar fichero
-                return true;
-            } else {
-                file.close(); //cerrar fichero
-                return false;
+            if (metido != id) {
+                throw new EOFException("El id no existe");
             }
-        } while (file.getFilePointer() != file.length());
+            for (int i = 0; i < 10; i++) {
+                aux = file.readChar();
+                apellido[i] = aux;
+            }
+            String apellidos = new String(apellido);
+            dep = file.readInt(); //obtengo dep
+            salario = file.readInt(); //obtengo salario
+
+            System.out.printf("ID: %s, Apellido: %s, Departamento: %d, Salario: %s %n", id, apellidos, dep, salario);
+
+            file.close(); //cerrar fichero
+        } catch (EOFException e) {
+            System.out.println("El id no existe");
+        }
     }
 
     public static void menu() {
