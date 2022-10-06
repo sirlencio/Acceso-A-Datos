@@ -12,7 +12,8 @@ public class gestor {
         do {
             menu();
             cursor = input.nextInt();
-            switch (cursor) {
+            switch
+            (cursor) {
                 case 1:
                     System.out.println("Ingrese el id: ");
                     id = input.nextInt();
@@ -70,7 +71,6 @@ public class gestor {
                     file.close(); //cerrar fichero
                     return true;
                 }
-                posicion = posicion + 32;
             } while (file.getFilePointer() != file.length());
             return false;
         } catch (EOFException e) { //Si el archivo no tiene el id
