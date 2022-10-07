@@ -15,11 +15,6 @@ public class dicisiete {
     // los datos se añadan al fichero (es decir, si existe el fichero no se sobreescribirá).
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Que desea hacer:");
-        System.out.println("1.-Almacenar");
-        System.out.println("2.-Leer");
-        System.out.println("0.-Salir");
-
         Scanner input = new Scanner(System.in);
         int cursor = 1;
         while (cursor != 0){
@@ -32,6 +27,8 @@ public class dicisiete {
                 almacenar();
             } else if (cursor == 2) {
                 recuperar();
+            }else {
+                break;
             }
         }
 
