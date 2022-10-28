@@ -24,14 +24,15 @@ public class cuatro {
             guardado += todo;
         br.close();
 
+        // Localizamos la tabla y la guardamos en un string
         String tabla = guardado.substring(guardado.indexOf("<table id=\"listado_valores"), guardado.indexOf("</table", guardado.indexOf("<table id=\"listado_valores")));
-        String[] tr = tabla.split("<tr>");
+        String[] tr = tabla.split("<tr>"); //Separamos la tabla en filas
         String[] td;
 
         String key = "", value = "";
         for (int i = 2; i < tr.length; i++) {
             //System.out.println("Fila " + i + " " + tr[i]);
-            td = tr[i].split("<td([^>]*)>");
+            td = tr[i].split("<td([^>]*)>"); // Separamos cada fila en columnas
             for (int j = 1; j < td.length; j++) {
                 //System.out.println("Columna " + j + " "+ td[j]);
                 key = td[1].substring(td[1].indexOf(">") + 1, td[1].indexOf("<", td[1].indexOf(">"))); //Guardamos el nombre de la empresa
@@ -44,7 +45,7 @@ public class cuatro {
             datos.put(key, value);
         }
         for (String i : datos.keySet()) {
-            System.out.println("Nombre: " + i + "\n" + datos.get(i));
+            System.out.println("Nombre: " + i + "\n" + datos.get(i)); //Mostramos el hashmap
         }
     }
 }

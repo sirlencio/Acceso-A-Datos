@@ -55,9 +55,11 @@ public class cinco {
             guardado += todo;
         br.close();
 
+        //Guardamos el nombre localizando un span despues de un h1
         String nombre = guardado.substring(guardado.indexOf("<h1><span>"), guardado.indexOf("</span>", guardado.indexOf("<h1><span>")));
         nombre = nombre.substring(nombre.lastIndexOf(">") + 1);
 
+        //Guardamos el valor de la cotizacion
         String valor = guardado.substring(guardado.indexOf("<td id=\"cotizacion"), guardado.indexOf("</td>", guardado.indexOf("<td id=\"cotizacion")));
         String hora = valor;
         valor = valor.substring(valor.indexOf(">") + 1, valor.indexOf("("));
