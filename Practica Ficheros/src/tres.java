@@ -95,6 +95,7 @@ public class tres {
     }
 
     public static void leerTodo() throws IOException {
+        try{
         File fichero = new File("AleatorioDep.dat");
         RandomAccessFile file = new RandomAccessFile(fichero, "r"); //declara el fichero de acceso aleatorio
         int id, presu, posicion;
@@ -115,6 +116,7 @@ public class tres {
             posicion = posicion + 28;
         } while (file.getFilePointer() != file.length());
         file.close();
+        }catch (EOFException ignored){}
     }
 
     public static void borrado(int intro) throws IOException {
@@ -125,7 +127,7 @@ public class tres {
         int id = -1;
         file.seek(posicion);
 
-        StringBuffer buffer = new StringBuffer(Integer.toString(intro));
+        StringBuilder buffer = new StringBuilder(Integer.toString(intro));
         buffer.setLength(10);
 
         file.writeInt(id);
@@ -141,15 +143,13 @@ public class tres {
             File fichero = new File("AleatorioDep.dat");
             RandomAccessFile file = new RandomAccessFile(fichero, "r");
             int id, posicion = (intro - 1) * 28; //para situarnos en el id metido
-            do {
-                file.seek(posicion);
-                id = file.readInt();
-                if (id == intro) {
-                    System.out.println("%nEl id ya existe%n");
-                    file.close();
-                    return true;
-                }
-            } while (file.getFilePointer() != file.length());
+            file.seek(posicion);
+            id = file.readInt();
+            if (id == intro) {
+                System.out.println("El id ya existe");
+                file.close();
+                return true;
+            }
             return false;
         } catch (EOFException e) { //Si el archivo no tiene el id
             return false;
