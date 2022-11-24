@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="calendario.xsl"?>
+<calendario>
+	<mes id="3">
+		<semana>
+			<dia></dia>
+			<dia></dia>
+			<dia></dia>
+			<dia id="1"></dia>
+			<dia id="2"></dia>
+			<dia id="3"></dia>
+			<dia id="4"></dia>
+		</semana>
+		<semana>
+			<dia id="5"></dia>
+			<dia id="6"></dia>
+			<dia id="7">Examen Teórico Entorno</dia>
+			<dia id="8">Examen FOL</dia>
+			<dia id="9"></dia>
+			<dia id="10"></dia>
+			<dia id="11"></dia>
+		</semana>
+		<semana>
+			<dia id="12"></dia>
+			<dia id="13"></dia>
+			<dia id="14">Examen Práctico Entorno</dia>
+			<dia id="15"></dia>
+			<dia id="16">Examen Bases de Datos</dia>
+			<dia id="17"></dia>
+			<dia id="18"></dia>
+		</semana>
+		<semana>
+			<dia id="19">Examen Lenguaje de Marcas</dia>
+			<dia id="20">Evaluación</dia>
+			<dia id="21"></dia>
+			<dia id="22"></dia>
+			<dia id="23"></dia>
+			<dia id="24"></dia>
+			<dia id="25"></dia>
+		</semana>
+		<semana>
+			<dia id="26"></dia>
+			<dia id="27"></dia>
+			<dia id="28"></dia>
+			<dia id="29"></dia>
+			<dia id="30"></dia>
+			<dia id="31"></dia>
+		</semana>
+	</mes>
+</calendario>
