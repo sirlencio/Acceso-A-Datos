@@ -1,7 +1,5 @@
 package Ejercicio_2;
 
-import com.mysql.cj.protocol.Resultset;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -149,7 +147,7 @@ public class ejercicio2 {
         }
     }
 
-    private static void printDBinfo() {
+    public static void printDBinfo() {
         try {
             DatabaseMetaData m = conexion.getMetaData();
             ResultSet resultSet = m.getTables("unidad2", null, null, null);
@@ -160,6 +158,5 @@ public class ejercicio2 {
         } catch (SQLException e) {
             System.err.println("Error al realizar la consulta: " + e);
         }
-
     }
 }
