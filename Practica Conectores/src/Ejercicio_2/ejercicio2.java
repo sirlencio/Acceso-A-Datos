@@ -85,9 +85,9 @@ public class ejercicio2 {
         ArrayList<departamento> departamentos = new ArrayList<>();
         departamento dep;
         try {
-            Statement sentencia = conexion.createStatement();
             String sql = "Select * from departamentos";
-            ResultSet resul = sentencia.executeQuery(sql);
+            PreparedStatement sentencia = conexion.prepareStatement(sql);
+            ResultSet resul = sentencia.executeQuery();
             while (resul.next()) {
                 dep = new departamento(resul.getInt(1), resul.getString(2), resul.getString(3));
                 departamentos.add(dep);
@@ -102,9 +102,9 @@ public class ejercicio2 {
         ArrayList<empleado> empleados = new ArrayList<>();
         empleado emple;
         try {
-            Statement sentencia = conexion.createStatement();
             String sql = "Select * from empleados where n_dep = " + n_dep;
-            ResultSet resul = sentencia.executeQuery(sql);
+            PreparedStatement sentencia = conexion.prepareStatement(sql);
+            ResultSet resul = sentencia.executeQuery();
             while (resul.next()) {
                 emple = new empleado(resul.getInt(1), resul.getString(2), resul.getString(3), resul.getInt(4), resul.getDate(5), resul.getFloat(6), resul.getFloat(7), resul.getInt(8));
                 empleados.add(emple);
