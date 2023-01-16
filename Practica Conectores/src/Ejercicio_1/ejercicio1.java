@@ -2,9 +2,7 @@ package Ejercicio_1;
 
 import Ejercicio_2.departamento;
 import Ejercicio_2.empleado;
-
 import java.sql.*;
-import java.util.Date;
 
 public class ejercicio1 {
     private static Connection conexion = null;
@@ -71,6 +69,12 @@ public class ejercicio1 {
     public static void printDBinfo() {
         try {
             DatabaseMetaData m = conexion.getMetaData();
+            System.out.println("INFORMACION SOBRE LA BASE DE DATOS");
+            System.out.println("==================================");
+            System.out.println("Nombre: " + m.getDatabaseProductName());
+            System.out.println("Driver: " + m.getDriverName());
+            System.out.println("URL: " + m.getURL());
+            System.out.println("Usuario: " + m.getUserName());
             ResultSet resultSet = m.getTables("unidad2", null, null, null);
             while (resultSet.next()) {
                 System.out.printf("Tabla %s %n", resultSet.getString("TABLE_NAME").toUpperCase());

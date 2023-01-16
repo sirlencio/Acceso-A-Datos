@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+  <libro>
+    <titulo>La vida está en otra parte</titulo>
+    <autor>Milan Kundera</autor>
+    <fechaPublicacion>1973</fechaPublicacion>
+  </libro>
+  <libro>
+    <titulo>Pantaleón y las visitadoras</titulo>
+    <autor fechaNacimiento="28/03/1936">Mario Vargas Llosa</autor>
+    <fechaPublicacion>1973</fechaPublicacion>
+  </libro>
+  <libro>
+    <titulo>Conversación en la catedral</titulo>
+    <autor fechaNacimiento="28/03/1936">Mario Vargas Llosa</autor>
+    <fechaPublicacion>1969</fechaPublicacion>
+  </libro>
+  <libro>
+    <titulo>Los pilares de la tierra</titulo>
+    <autor fechaNacimiento="05/06/1949">Ken Follet</autor>
+    <fechaPublicacion>1980</fechaPublicacion>
+  </libro>
+</biblioteca>
