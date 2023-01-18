@@ -8,22 +8,22 @@ public class ejercicio2 {
 
     public static void main(String[] args) {
         // a) Conectar a la base de datos (carga del driver y establecimiento de conexión).
-        ejercicio2.connect();
+        connect();
 
         // b)	Insertar un departamento. El método recibirá los argumentos: número, nombre y localidad.
-        ejercicio2.insertarDepartamento(1, "Comunicaciones", "Huelva");
+        insertarDepartamento(1, "Comunicaciones", "Huelva");
 
         // c)	Lo mismo que b) pero recibiendo un solo argumento que será un objeto de la clase departamento.
-        ejercicio2.insertarDepartamento(new departamento(2, "Informacion", "Huelva"));
+        insertarDepartamento(new departamento(2, "Informacion", "Huelva"));
 
         // d)	Método que devuelve un ArrayList de objetos departamento ante la consulta de todas las columnas de todos los departamentos de la tabla departamento.
-        System.out.println(ejercicio2.listaDepartamentos().toString());
+        System.out.println(listaDepartamentos().toString());
 
         // e)	Método que reciba un número de departamento y devuelva una lista de los empleados.
-        System.out.println(ejercicio2.listaEmpleadosDep(1).toString());
+        System.out.println(listaEmpleadosDep(1).toString());
 
         // f)	Método que recibe el número de un departamento y un nuevo nombre y devuelve el número de filas afectadas.
-        System.out.println("Se cambiaron " + ejercicio2.cambioNombreDepartamento(1, "Maletas") + " departamentos de nombre");
+        System.out.println("Se cambiaron " + cambioNombreDepartamento(1, "Maletas") + " departamentos de nombre");
 
         // g)	Método que reciba objeto departamento y actualice su localidad (segundo argumento delmétodo). Utilizar el siguiente procedemientoMySQL:
         //      delimiter $$
@@ -39,7 +39,7 @@ public class ejercicio2 {
         // i)	Método que imprima todas las tablas y vistas del esquema actual, indicando además, sitrata de una tabla o una vista.
         printDBinfo();
 
-        ejercicio2.disconnect();
+        disconnect();
     }
 
     public static void connect() {
@@ -137,7 +137,7 @@ public class ejercicio2 {
         }
     }
 
-    public static void incrementoSalario(int cantidad, int n_dep){
+    public static void incrementoSalario(int cantidad, int n_dep) {
         try {
             String sql = "update empleados set salario = salario+" + cantidad + " where n_dep = " + n_dep;
             PreparedStatement sentencia = conexion.prepareStatement(sql);
@@ -151,7 +151,7 @@ public class ejercicio2 {
         try {
             DatabaseMetaData m = conexion.getMetaData();
             ResultSet resultSet = m.getTables("unidad2", null, null, null);
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 System.out.printf("Tabla %s %n", resultSet.getString("TABLE_NAME").toUpperCase());
                 System.out.printf("\tTipo: %s %n", resultSet.getString("TABLE_TYPE"));
             }

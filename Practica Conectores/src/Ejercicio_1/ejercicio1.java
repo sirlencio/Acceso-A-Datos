@@ -2,6 +2,7 @@ package Ejercicio_1;
 
 import Ejercicio_2.departamento;
 import Ejercicio_2.empleado;
+
 import java.sql.*;
 
 public class ejercicio1 {
@@ -17,7 +18,7 @@ public class ejercicio1 {
         ejercicio1.printDBinfo();
 
         // c) Insertar empleado
-        insertarEmpleado(5,"Jimenez", "Director", 4,2200, 200, 2);
+        insertarEmpleado(5, "Jimenez", "Director", 4, 2200, 200, 2);
 
         ejercicio1.disconnect();
     }

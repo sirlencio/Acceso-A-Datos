@@ -17,7 +17,7 @@ public class ejercicio3 {
 
     public static void main(String[] args) {
         //a) Apertura y cierre de conexión
-        ejercicio3.connect();
+        connect();
 
         //b) Leer fichero xml y almacenar datos en BD. (el número de la clave primaria se obtendrá
         //   a partir del último almacenado de forma consecutiva.
@@ -29,7 +29,7 @@ public class ejercicio3 {
         //d) Mostrar los libros publicados en un determinado año que se pasa como parámetro.
         filtrarAnio(1973);
 
-        ejercicio3.disconnect();
+        disconnect();
     }
 
     public static void connect() {
@@ -68,7 +68,7 @@ public class ejercicio3 {
                     //obtener los elementos del nodo
                     Element elemento = (Element) libro;
                     try {
-                        String sql = "select count(NUMERO) from biblioteca";
+                        String sql = "select max(NUMERO) from biblioteca";
                         PreparedStatement id = conexion.prepareStatement(sql);
                         ResultSet resul = id.executeQuery();
                         if (resul.next()) {
@@ -104,7 +104,7 @@ public class ejercicio3 {
                         insertar.setInt(5, Integer.parseInt(fechapub));
                         insertar.executeUpdate();
                     } catch (SQLException e) {
-                        System.err.println("Error al insertar el empleado: " + e);
+                        System.err.println("Error al insertar el libro: " + e);
                     }
 
                 }
