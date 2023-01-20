@@ -73,7 +73,7 @@ public class ejercicio2 {
 
     public static void insertarDepartamento(departamento dep) {
         try {
-            String sql = "Insert into departamentos values (" + dep.getN_dep() + ",'" + dep.getNombre_dep() + "',\'" + dep.getLocalidad() + "')";
+            String sql = "Insert into departamentos values (" + dep.getDept_no() + ",'" + dep.getDnombre() + "',\'" + dep.getLoc() + "')";
             PreparedStatement insertar = conexion.prepareStatement(sql);
             insertar.executeUpdate();
         } catch (SQLException e) {
@@ -102,7 +102,7 @@ public class ejercicio2 {
         ArrayList<empleado> empleados = new ArrayList<>();
         empleado emple;
         try {
-            String sql = "Select * from empleados where n_dep = " + n_dep;
+            String sql = "Select * from empleados where dept_no = " + n_dep;
             PreparedStatement sentencia = conexion.prepareStatement(sql);
             ResultSet resul = sentencia.executeQuery();
             while (resul.next()) {
@@ -118,7 +118,7 @@ public class ejercicio2 {
     public static int cambioNombreDepartamento(int n_dep, String nuevo) {
         int afectadas = 0;
         try {
-            String sql = "update departamentos set nombre_dep = '" + nuevo + "' where n_dep = " + n_dep;
+            String sql = "update departamentos set dnombre = '" + nuevo + "' where dept_no = " + n_dep;
             PreparedStatement sentencia = conexion.prepareStatement(sql);
             afectadas = sentencia.executeUpdate();
         } catch (SQLException e) {
@@ -129,7 +129,7 @@ public class ejercicio2 {
 
     public static void actualizarLocalidad(departamento dep, String localidad) {
         try {
-            String sql = "call actualizaDept(" + dep.getN_dep() + ",'" + localidad + "')";
+            String sql = "call actualizaDept(" + dep.getDept_no() + ",'" + localidad + "')";
             CallableStatement sentencia = conexion.prepareCall(sql);
             sentencia.executeUpdate();
         } catch (SQLException e) {
@@ -139,7 +139,7 @@ public class ejercicio2 {
 
     public static void incrementoSalario(int cantidad, int n_dep) {
         try {
-            String sql = "update empleados set salario = salario+" + cantidad + " where n_dep = " + n_dep;
+            String sql = "update empleados set salario = salario+" + cantidad + " where dept_no = " + n_dep;
             PreparedStatement sentencia = conexion.prepareStatement(sql);
             sentencia.executeUpdate();
         } catch (SQLException e) {

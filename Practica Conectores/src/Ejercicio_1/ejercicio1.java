@@ -49,12 +49,12 @@ public class ejercicio1 {
             ResultSet resul = sentencia.executeQuery(sql);
             while (resul.next()) {
                 departamento dep = new departamento(resul.getInt(1), resul.getString(2), resul.getString(3));
-                System.out.println("Departamento nº: " + dep.getN_dep());
-                System.out.println("Nombre: " + dep.getNombre_dep());
-                System.out.println("Localidad: " + dep.getLocalidad());
+                System.out.println("Departamento nº: " + dep.getDept_no());
+                System.out.println("Nombre: " + dep.getDnombre());
+                System.out.println("Localidad: " + dep.getLoc());
 
                 Statement empleados = conexion.createStatement();
-                String query = "Select * from empleados where n_dep = " + dep.getN_dep();
+                String query = "Select * from empleados where dept_no = " + dep.getDept_no();
                 ResultSet resultSet = empleados.executeQuery(query);
 
                 while (resultSet.next()) {

@@ -3,50 +3,50 @@ package Ejercicio_2;
 import java.util.Date;
 
 public class empleado {
-    private int n_empleado;
+    private int emp_no;
     private String apellido;
     private String oficio;
     private int dir;
     private Date fecha_alt;
     private float salario;
     private float comision;
-    private int n_dep;
+    private int dept_no;
 
     @Override
     public String toString() {
         return "Empleado{" +
-                "n_empleado=" + n_empleado +
+                "emp_no=" + emp_no +
                 ", apellido='" + apellido + '\'' +
                 ", oficio='" + oficio + '\'' +
                 ", dir=" + dir +
                 ", fecha_alt='" + fecha_alt.toString() + '\'' +
                 ", salario=" + salario +
                 ", comision=" + comision +
-                ", n_dep=" + n_dep +
+                ", dept_no=" + dept_no +
                 '}';
     }
 
-    public empleado(int n_empleado, String apellido, String oficio, int dir, Date fecha_alt, float salario, float comision, int n_dep) {
-        this.n_empleado = n_empleado;
+    public empleado(int emp_no, String apellido, String oficio, int dir, Date fecha_alt, float salario, float comision, int dept_no) {
+        this.emp_no = emp_no;
         this.apellido = apellido;
         this.oficio = oficio;
         this.dir = dir;
         this.fecha_alt = fecha_alt;
         this.salario = salario;
         this.comision = comision;
-        this.n_dep = n_dep;
+        this.dept_no = dept_no;
     }
 
-    public empleado(int n_empleado) {
-        this.n_empleado = n_empleado;
+    public empleado(int emp_no) {
+        this.emp_no = emp_no;
     }
 
-    public int getN_empleado() {
-        return n_empleado;
+    public int getEmp_no() {
+        return emp_no;
     }
 
-    public void setN_empleado(int n_empleado) {
-        this.n_empleado = n_empleado;
+    public void setEmp_no(int emp_no) {
+        this.emp_no = emp_no;
     }
 
     public String getApellido() {
@@ -97,11 +97,11 @@ public class empleado {
         this.comision = comision;
     }
 
-    public int getN_dep() {
-        return n_dep;
+    public int getDept_no() {
+        return dept_no;
     }
 
-    public void setN_dep(int n_dep) {
-        this.n_dep = n_dep;
+    public void setDept_no(int dept_no) {
+        this.dept_no = dept_no;
     }
 }

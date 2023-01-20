@@ -1,46 +1,46 @@
 package Ejercicio_2;
 
 public class departamento {
-    private int n_dep;
-    private String nombre_dep;
-    private String localidad;
+    private int dept_no;
+    private String dnombre;
+    private String loc;
 
-    public departamento(int n_dep, String nombre_dep, String localidad) {
-        this.n_dep = n_dep;
-        this.nombre_dep = nombre_dep;
-        this.localidad = localidad;
+    public departamento(int dept_no, String dnombre, String loc) {
+        this.dept_no = dept_no;
+        this.dnombre = dnombre;
+        this.loc = loc;
     }
 
-    public departamento(int n_dep) {
-        this.n_dep = n_dep;
+    public departamento(int dept_no) {
+        this.dept_no = dept_no;
     }
 
-    public int getN_dep() {
-        return n_dep;
+    public int getDept_no() {
+        return dept_no;
     }
 
-    public void setN_dep(int n_dep) {
-        this.n_dep = n_dep;
+    public void setDept_no(int dept_no) {
+        this.dept_no = dept_no;
     }
 
-    public String getNombre_dep() {
-        return nombre_dep;
+    public String getDnombre() {
+        return dnombre;
     }
 
-    public void setNombre_dep(String nombre_dep) {
-        this.nombre_dep = nombre_dep;
+    public void setDnombre(String dnombre) {
+        this.dnombre = dnombre;
     }
 
-    public String getLocalidad() {
-        return localidad;
+    public String getLoc() {
+        return loc;
     }
 
-    public void setLocalidad(String loc) {
-        this.localidad = localidad;
+    public void setLoc(String loc) {
+        this.loc = loc;
     }
 
     @Override
     public String toString() {
-        return "Departamento{" + "n_dep=" + n_dep + ", nombre_dep='" + nombre_dep + '\'' + ", localidad='" + localidad + '\'' + '}';
+        return "Departamento{" + "dept_no=" + dept_no + ", dnombre='" + dnombre + '\'' + ", loc='" + loc + '\'' + '}';
     }
 }
