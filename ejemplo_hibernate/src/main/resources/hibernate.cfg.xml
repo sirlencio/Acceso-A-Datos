@@ -4,14 +4,8 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:mysql://10.10.176.100:3306/ejercicio2</property>
-    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="connection.username">ejercicio2</property>
-    <property name="connection.password">ejercicio2</property>
-    <mapping class="org.example.DepartamentosClass"/>
-      <mapping resource="DepartamentosClass.hbm.xml"/>
-    <mapping class="org.example.EmpleadosClass"/>
-    <mapping resource="EmpleadosClass.hbm.xml"/>
+    <property name="connection.url"/>
+    <property name="connection.driver_class"/>
     <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
