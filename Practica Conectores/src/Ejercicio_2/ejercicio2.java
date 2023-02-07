@@ -17,7 +17,7 @@ public class ejercicio2 {
         insertarDepartamento(new departamento(2, "Informacion", "Huelva"));
 
         // d)	Método que devuelve un ArrayList de objetos departamento ante la consulta de todas las columnas de todos los departamentos de la tabla departamento.
-        System.out.println(listaDepartamentos().toString());
+        mostrarDepartamentos();
 
         // e)	Método que reciba un número de departamento y devuelva una lista de los empleados.
         System.out.println(listaEmpleadosDep(1).toString());
@@ -81,7 +81,7 @@ public class ejercicio2 {
         }
     }
 
-    public static ArrayList<departamento> listaDepartamentos() {
+    public static void mostrarDepartamentos() {
         ArrayList<departamento> departamentos = new ArrayList<>();
         departamento dep;
         try {
@@ -95,7 +95,9 @@ public class ejercicio2 {
         } catch (SQLException e) {
             System.err.println("Error al realizar la consulta: " + e);
         }
-        return departamentos;
+        for (departamento d:departamentos) {
+            System.out.println(d.toString());
+        }
     }
 
     public static ArrayList<empleado> listaEmpleadosDep(int n_dep) {

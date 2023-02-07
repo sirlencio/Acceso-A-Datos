@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.Productos" table="productos" schema="ventas">
+        <id name="id">
+            <column name="ID" sql-type="mediumint(8) unsigned"/>
+        </id>
+        <property name="descripcion">
+            <column name="DESCRIPCION" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="stockactual">
+            <column name="STOCKACTUAL" sql-type="mediumint(8) unsigned" not-null="true"/>
+        </property>
+        <property name="stockminimo">
+            <column name="STOCKMINIMO" sql-type="mediumint(8) unsigned" not-null="true"/>
+        </property>
+        <property name="pvp">
+            <column name="PVP" sql-type="decimal(8,2)" precision="8" scale="2" not-null="true"/>
+        </property>
+        <set name="ventasById" inverse="true">
+            <key>
+                <column name="IDPRODUCTO"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.example.Ventas"/>
+        </set>
+    </class>
+</hibernate-mapping>
