@@ -3,17 +3,15 @@ package org.example;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import java.util.Set;
-import java.util.Iterator;
 
-public class Main {
+public class Ejercicio35 {
     public static void main(String[] args) {
         SessionFactory sesionF = HibernateUtil.getSessionFactory();
         Session s = sesionF.openSession();
 
         System.out.println("=========================");
         System.out.println("Datos del cliente.");
-        Clientes cli;
-        cli = s.load(Clientes.class, 1);
+        Clientes cli = s.get(Clientes.class, 1);
 
         System.out.println("Ventas del cliente: " + cli.getNombre());
         System.out.println("Venta: ");

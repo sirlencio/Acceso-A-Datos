@@ -4,15 +4,15 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="org.example.Ventas" table="ventas" schema="ventas">
+    <class name="org.example.Ventas" table="VENTAS" schema="ventas">
         <id name="idventa">
-            <column name="IDVENTA" sql-type="smallint(5) unsigned"/>
+            <column name="IDVENTA" sql-type="int unsigned"/>
         </id>
         <property name="fechaventa">
             <column name="FECHAVENTA" sql-type="date"/>
         </property>
         <property name="cantidad">
-            <column name="CANTIDAD" sql-type="tinyint(3) unsigned"/>
+            <column name="CANTIDAD" sql-type="int unsigned"/>
         </property>
         <many-to-one name="clientesByIdcliente" class="org.example.Clientes">
             <column name="IDCLIENTE"/>

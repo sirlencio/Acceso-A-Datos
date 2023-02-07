@@ -8,7 +8,7 @@
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="connection.username">examen</property>
     <property name="connection.password">examen</property>
-      <mapping resource="Clientes.hbm.xml"/>
+    <mapping resource="Clientes.hbm.xml"/>
     <mapping resource="Productos.hbm.xml"/>
     <mapping resource="Ventas.hbm.xml"/>
     <!-- <property name="connection.username"/> -->

@@ -4,17 +4,17 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class Ventas {
-    private int idventa;
+    private Integer idventa;
     private Date fechaventa;
-    private int cantidad;
+    private Integer cantidad;
     private Clientes clientesByIdcliente;
     private Productos productosByIdproducto;
 
-    public int getIdventa() {
+    public Integer getIdventa() {
         return idventa;
     }
 
-    public void setIdventa(int idventa) {
+    public void setIdventa(Integer idventa) {
         this.idventa = idventa;
     }
 
@@ -26,11 +26,11 @@ public class Ventas {
         this.fechaventa = fechaventa;
     }
 
-    public int getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -39,7 +39,7 @@ public class Ventas {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ventas ventas = (Ventas) o;
-        return idventa == ventas.idventa && cantidad == ventas.cantidad && Objects.equals(fechaventa, ventas.fechaventa);
+        return Objects.equals(idventa, ventas.idventa) && Objects.equals(fechaventa, ventas.fechaventa) && Objects.equals(cantidad, ventas.cantidad);
     }
 
     @Override

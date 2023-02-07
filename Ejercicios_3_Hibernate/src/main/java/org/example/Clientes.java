@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 public class Clientes {
-    private int id;
+    private Integer id;
     private String nombre;
     private String direccion;
     private String poblacion;
@@ -12,11 +12,11 @@ public class Clientes {
     private String nif;
     private Collection<Ventas> ventasById;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,7 +65,7 @@ public class Clientes {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Clientes clientes = (Clientes) o;
-        return id == clientes.id && Objects.equals(nombre, clientes.nombre) && Objects.equals(direccion, clientes.direccion) && Objects.equals(poblacion, clientes.poblacion) && Objects.equals(telef, clientes.telef) && Objects.equals(nif, clientes.nif);
+        return Objects.equals(id, clientes.id) && Objects.equals(nombre, clientes.nombre) && Objects.equals(direccion, clientes.direccion) && Objects.equals(poblacion, clientes.poblacion) && Objects.equals(telef, clientes.telef) && Objects.equals(nif, clientes.nif);
     }
 
     @Override

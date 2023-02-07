@@ -4,9 +4,9 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="org.example.Clientes" table="clientes" schema="ventas">
+    <class name="org.example.Clientes" table="CLIENTES" schema="ventas">
         <id name="id">
-            <column name="ID" sql-type="tinyint(3) unsigned"/>
+            <column name="ID" sql-type="int unsigned"/>
         </id>
         <property name="nombre">
             <column name="NOMBRE" sql-type="varchar(50)" length="50"/>
