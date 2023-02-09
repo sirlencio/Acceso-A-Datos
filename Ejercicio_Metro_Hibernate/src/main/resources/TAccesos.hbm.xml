@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.TAccesos" table="t_accesos" schema="metro">
+        <id name="codAcceso">
+            <column name="cod_acceso" sql-type="int"/>
+        </id>
+        <property name="descripcion">
+            <column name="descripcion" sql-type="varchar(50)" length="50"/>
+        </property>
+        <many-to-one name="tEstacionesByCodEstacion" class="org.example.TEstaciones">
+            <column name="cod_estacion"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

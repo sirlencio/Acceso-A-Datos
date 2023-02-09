@@ -1,3 +1,5 @@
+package Ej1;
+
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -53,7 +55,7 @@ public class Ej1 {
 		}
 	}
 	
-	public static void nuevocurso(RandomAccessFile ra) throws IOException {  //Metodo para añadir nuevo curso
+	public static void nuevocurso(RandomAccessFile ra) throws IOException {  //Metodo para aï¿½adir nuevo curso
 		Scanner e = new Scanner(System.in);
 		int id;
 		String nombre;

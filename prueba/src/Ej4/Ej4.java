@@ -1,11 +1,9 @@
 package Ej4;
 
 import java.io.IOException;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -29,7 +27,7 @@ class UserHandler extends DefaultHandler {
 	String d;
 	String m;
 
-	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+	public void startElement(String uri, String localName, String qName, Attributes attributes) {
 
 		if (qName.equalsIgnoreCase("calendario")) {
 		} else if (qName.equalsIgnoreCase("semana")) {

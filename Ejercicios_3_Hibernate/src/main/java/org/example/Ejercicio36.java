@@ -52,7 +52,8 @@ public class Ejercicio36 {
     }
 
     public static void insertarVenta(Session s, int id) {
-        s.beginTransaction();
+        //s.beginTransaction();
+        Transaction tx = s.beginTransaction();
         Ventas v = new Ventas();
 
         input.nextLine();
@@ -65,7 +66,8 @@ public class Ejercicio36 {
 
         if (c == null) {
             System.out.println("El cliente con ese id no existe");
-            s.getTransaction().commit();
+            //s.getTransaction().commit();
+            tx.commit();
         } else {
             System.out.print("Inserte el id del producto de esa venta: ");
             int idpro = input.nextInt();
@@ -73,14 +75,16 @@ public class Ejercicio36 {
 
             if (p == null) {
                 System.out.println("El producto con ese id no existe");
-                s.getTransaction().commit();
+                //s.getTransaction().commit();
+                tx.commit();
             } else {
                 System.out.print("Inserte la cantidad vendida:");
                 int cantidad = input.nextInt();
 
                 if (p.getStockactual() - cantidad < p.getStockminimo()) {
                     System.out.println("El producto debe tener stock");
-                    s.getTransaction().commit();
+                    //s.getTransaction().commit();
+                    tx.commit();
                 } else {
                     v.setIdventa(id);
                     v.setFechaventa(Date.valueOf(fecha));
@@ -88,9 +92,10 @@ public class Ejercicio36 {
                     v.setProductosByIdproducto(p);
                     v.setCantidad(cantidad);
 
-                    s.persist(v);
-                    s.getTransaction().commit();
-                    s.close();
+                    s.save(v);
+                    tx.commit();
+                    //s.persist(v);
+                    //s.getTransaction().commit();
                     System.out.println("Venta insertada");
                 }
             }
@@ -98,7 +103,8 @@ public class Ejercicio36 {
     }
 
     public static void insertarProducto(Session s, int id) {
-        s.beginTransaction();
+        //s.beginTransaction();
+        Transaction tx = s.beginTransaction();
         Productos p = new Productos();
 
         input.nextLine();
@@ -117,13 +123,16 @@ public class Ejercicio36 {
         p.setStockminimo(stockmin);
         p.setPvp(BigDecimal.valueOf(pvp));
 
-        s.persist(p);
-        s.getTransaction().commit();
+        s.save(p);
+        tx.commit();
+        //s.persist(p);
+        //s.getTransaction().commit();
         System.out.println("Producto insertado");
     }
 
     public static void insertarCliente(Session s, int id) {
-        s.beginTransaction();
+        //s.beginTransaction();
+        Transaction tx = s.beginTransaction();
         Clientes c = new Clientes();
 
         input.nextLine();
@@ -145,8 +154,10 @@ public class Ejercicio36 {
         c.setTelef(tfno);
         c.setNif(nif);
 
-        s.persist(c);
-        s.getTransaction().commit();
+        s.save(c);
+        tx.commit();
+        //s.persist(c);
+        //s.getTransaction().commit();
         System.out.println("Cliente insertado");
     }
 
