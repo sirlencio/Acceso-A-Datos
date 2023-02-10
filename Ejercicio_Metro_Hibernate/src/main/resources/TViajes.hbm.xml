@@ -5,12 +5,8 @@
 <hibernate-mapping>
 
     <class name="org.example.TViajes" table="T_VIAJES" schema="metro">
-        <id name="codViaje">
-            <column name="cod_VIAJE" sql-type="int"/>
-        </id>
-        <property name="nombre">
-            <column name="nombre" sql-type="varchar(50)" length="50"/>
-        </property>
+        <id name="codViaje" column="cod_VIAJE"/>
+        <property name="nombre" column="nombre"/>
         <many-to-one name="tEstacionesByEstacionorigen" class="org.example.TEstaciones">
             <column name="estacionorigen" not-null="true"/>
         </many-to-one>

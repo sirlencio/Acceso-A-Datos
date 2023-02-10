@@ -3,14 +3,18 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="org.example.TLineaEstacion" table="t_LINEA_ESTACION">
-        <composite-id name="id">
+
+    <class name="org.example.TLineaEstacion" table="t_LINEA_ESTACION" schema="metro">
+        <composite-id name="id" class="org.example.TLineaEstacionPK">
             <key-property name="codLinea" column="cod_linea"/>
             <key-property name="codEstacion" column="cod_estacion"/>
         </composite-id>
         <property name="orden" column="orden"/>
-        <many-to-one name="tLineasByCodLinea" class="org.example.TLineas" column="cod_linea" unique="true"/>
-        <many-to-one name="tEstacionesByCodEstacion" class="org.example.TEstaciones" column="cod_estacion" unique="true"/>
+        <many-to-one name="tLineasByCodLinea" class="org.example.TLineas" insert="false" update="false">
+            <column name="cod_linea"/>
+        </many-to-one>
+        <many-to-one name="tEstacionesByCodEstacion" class="org.example.TEstaciones" insert="false" update="false">
+            <column name="cod_estacion"/>
+        </many-to-one>
     </class>
-
 </hibernate-mapping>

@@ -1,31 +1,21 @@
 package org.example;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class TLineaEstacion implements Serializable {
+public class TLineaEstacion {
+    private int codLinea;
+    private int codEstacion;
     private int orden;
     private TLineas tLineasByCodLinea;
     private TEstaciones tEstacionesByCodEstacion;
-    private int codLinea;
-    private int codEstacion;
-    private int id;
+    private TLineaEstacionPK id;
 
-
-    public int getId() {
+    public TLineaEstacionPK getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(TLineaEstacionPK id) {
         this.id = id;
-    }
-
-    public int getCodEstacion() {
-        return codEstacion;
-    }
-
-    public void setCodEstacion(int codEstacion) {
-        this.codEstacion = codEstacion;
     }
 
     public int getCodLinea() {
@@ -34,6 +24,14 @@ public class TLineaEstacion implements Serializable {
 
     public void setCodLinea(int codLinea) {
         this.codLinea = codLinea;
+    }
+
+    public int getCodEstacion() {
+        return codEstacion;
+    }
+
+    public void setCodEstacion(int codEstacion) {
+        this.codEstacion = codEstacion;
     }
 
     public int getOrden() {
@@ -49,12 +47,12 @@ public class TLineaEstacion implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TLineaEstacion that = (TLineaEstacion) o;
-        return orden == that.orden;
+        return codLinea == that.codLinea && codEstacion == that.codEstacion && orden == that.orden;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orden);
+        return Objects.hash(codLinea, codEstacion, orden);
     }
 
     public TLineas gettLineasByCodLinea() {

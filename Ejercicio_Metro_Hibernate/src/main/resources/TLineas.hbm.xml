@@ -5,12 +5,8 @@
 <hibernate-mapping>
 
     <class name="org.example.TLineas" table="t_lineas" schema="metro">
-        <id name="codLinea">
-            <column name="cod_linea" sql-type="int"/>
-        </id>
-        <property name="nombre">
-            <column name="nombre" sql-type="varchar(50)" length="50"/>
-        </property>
+        <id name="codLinea" column="cod_linea"/>
+        <property name="nombre" column="nombre"/>
         <set name="tLineaEstacionsByCodLinea" inverse="true">
             <key>
                 <column name="cod_linea"/>

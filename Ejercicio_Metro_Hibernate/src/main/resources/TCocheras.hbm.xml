@@ -5,15 +5,9 @@
 <hibernate-mapping>
 
     <class name="org.example.TCocheras" table="t_cocheras" schema="metro">
-        <id name="codCochera">
-            <column name="cod_cochera" sql-type="int"/>
-        </id>
-        <property name="nombre">
-            <column name="nombre" sql-type="varchar(50)" length="50"/>
-        </property>
-        <property name="direccion">
-            <column name="direccion" sql-type="varchar(50)" length="50"/>
-        </property>
+        <id name="codCochera" column="cod_cochera"/>
+        <property name="nombre" column="nombre"/>
+        <property name="direccion" column="direccion"/>
         <set name="tTrenesByCodCochera" inverse="true">
             <key>
                 <column name="cod_cochera"/>

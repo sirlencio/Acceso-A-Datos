@@ -5,27 +5,13 @@
 <hibernate-mapping>
 
     <class name="org.example.TEstaciones" table="t_estaciones" schema="metro">
-        <id name="codEstacion">
-            <column name="cod_estacion" sql-type="int"/>
-        </id>
-        <property name="nombre">
-            <column name="nombre" sql-type="varchar(50)" length="50"/>
-        </property>
-        <property name="direccion">
-            <column name="direccion" sql-type="varchar(50)" length="50"/>
-        </property>
-        <property name="numaccesos">
-            <column name="numaccesos" sql-type="int" not-null="true"/>
-        </property>
-        <property name="numlineas">
-            <column name="numlineas" sql-type="int" not-null="true"/>
-        </property>
-        <property name="numviajesdestino">
-            <column name="numviajesdestino" sql-type="int" not-null="true"/>
-        </property>
-        <property name="numviajesprocedencia">
-            <column name="numviajesprocedencia" sql-type="int" not-null="true"/>
-        </property>
+        <id name="codEstacion" column="cod_estacion"/>
+        <property name="nombre" column="nombre"/>
+        <property name="direccion" column="direccion"/>
+        <property name="numaccesos" column="numaccesos"/>
+        <property name="numlineas" column="numlineas"/>
+        <property name="numviajesdestino" column="numviajesdestino"/>
+        <property name="numviajesprocedencia" column="numviajesprocedencia"/>
         <set name="tViajesByCodEstacion" inverse="true">
             <key>
                 <column name="estacionorigen" not-null="true"/>
