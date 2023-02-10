@@ -16,13 +16,11 @@ public class Ejercicio5 {
         SessionFactory sesionF = HibernateUtil.getSessionFactory();
         Session s = sesionF.openSession();
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Introduzca el codigo del jugador del que se quieren mostrar sus estadisticas");
         int id = 0;
         try {
-            id = input.nextInt();
-        } catch (InputMismatchException mismatchException) {
-            System.err.println("No has metido un numero");
+            id = Integer.parseInt(args[0]);
+        } catch (NumberFormatException number) {
+            System.err.println("No has metido un numero: " + number.getMessage());
             System.exit(0);
         }
         Jugadores j = s.get(Jugadores.class, id);

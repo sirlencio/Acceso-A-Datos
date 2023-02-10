@@ -9,17 +9,18 @@ import java.util.Collection;
 import java.util.List;
 
 public class Main {
+
+    public static void main(String[] args) {
+        //ejercicio3();
+        ejercicio4();
+    }
+
     // Crea un metodo para actualizar los campos numaccesos, numlineas, numviajesdestino y numviajesprocedencia
     // de las estaciones de la tabla T_Estaciones.
     // Estas columnas deben contener el numero de accesos que tiene la estacion (numaccesos),
     // el numero de lineas que pasan por la estacion (numlineas),
     // el numero de viajes que la tienen como destino (numviajesdestino),
     // y el numero de viajes que la tienen como procedencia (numviajesprocedencia)
-    public static void main(String[] args) {
-        //ejercicio3();
-        ejercicio4();
-    }
-
     public static void ejercicio3() {
         SessionFactory sesionF = HibernateUtil.getSessionFactory();
         Session s = sesionF.openSession();

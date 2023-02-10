@@ -12,13 +12,9 @@ public class Ejercicio35 {
         SessionFactory sesionF = HibernateUtil.getSessionFactory();
         Session s = sesionF.openSession();
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Introduzca el id del cliente del que se quieren sacar las ventas");
-        int id = input.nextInt();
-
         System.out.println("=========================");
         System.out.println("Datos del cliente.");
-        Clientes cli = s.get(Clientes.class, id);
+        Clientes cli = s.get(Clientes.class, Integer.parseInt(args[0]));
 
         if (cli != null) {
             System.out.println("Ventas del cliente: " + cli.getNombre());
@@ -43,7 +39,7 @@ public class Ejercicio35 {
             System.out.println("Importe total: " + total);
             s.close();
         } else {
-            System.out.println("No se encontró un cliente con el identificador: " + id);
+            System.out.println("No se encontró un cliente con el identificador: " + args[0]);
         }
     }
 }

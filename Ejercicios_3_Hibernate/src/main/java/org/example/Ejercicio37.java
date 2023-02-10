@@ -11,13 +11,9 @@ public class Ejercicio37 {
         SessionFactory sesionF = HibernateUtil.getSessionFactory();
         Session s = sesionF.openSession();
 
-        Scanner input = new Scanner(System.in);
-        System.out.print("Introduzca el id del cliente del que se quieren sacar las ventas: ");
-        int id = input.nextInt();
-
         String hql = "FROM Clientes WHERE id = :idcliente";
         Query query = s.createQuery(hql);
-        query.setParameter("idcliente", id);
+        query.setParameter("idcliente", Integer.parseInt(args[0]));
         Clientes c = (Clientes) query.uniqueResult();
 
         if (c != null) {
@@ -43,7 +39,7 @@ public class Ejercicio37 {
             System.out.println("Importe total: " + total);
             s.close();
         } else {
-            System.out.println("No se encontró un cliente con el identificador: " + id);
+            System.out.println("No se encontró un cliente con el identificador: " + args[0]);
         }
 
     }
