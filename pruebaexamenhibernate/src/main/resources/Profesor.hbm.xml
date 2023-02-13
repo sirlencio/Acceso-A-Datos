@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.Profesor" table="profesor" schema="instituto">
+        <id name="codProf" column="COD_PROF"/>
+        <property name="nombrePro" column="NOMBRE_PRO"/>
+        <property name="espePro" column="ESPE_PRO"/>
+        <property name="fechaNac" column="FECHA_NAC"/>
+        <property name="sexo" column="SEXO"/>
+        <property name="salario" column="SALARIO"/>
+        <many-to-one name="centroByCodCentro" class="org.example.Centro">
+            <column name="COD_CENTRO"/>
+        </many-to-one>
+        <set name="asignaturasByCodProf" inverse="true">
+            <key>
+                <column name="COD_PROF" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.example.Asignatura"/>
+        </set>
+    </class>
+</hibernate-mapping>

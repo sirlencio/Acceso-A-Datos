@@ -26,7 +26,7 @@ public class ejercicio1 {
     public static void connect() {
         try {
             // Establecer la conexión con la base de datos
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/unidad2", "unidad2", "");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/unidad2", "instituto", "");
         } catch (SQLException e) {
             System.err.println("Error al establecer la conexión con la base de datos: " + e);
         }
