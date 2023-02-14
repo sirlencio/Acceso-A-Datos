@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.Estudios" table="estudios" schema="peliculas">
+        <id name="estudioId" column="estudio_id"/>
+        <property name="nombre" column="nombre"/>
+        <property name="email" column="email"/>
+        <set name="peliculasByEstudioId" inverse="true">
+            <key>
+                <column name="estudio_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.example.Peliculas"/>
+        </set>
+    </class>
+</hibernate-mapping>

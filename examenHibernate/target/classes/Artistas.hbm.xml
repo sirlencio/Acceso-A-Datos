@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.Artistas" table="artistas" schema="peliculas">
+        <id name="artistaId" column="artista_id"/>
+        <property name="nombre" column="nombre"/>
+        <property name="fechaNac" column="fecha_nac"/>
+        <property name="fechaDef" column="fecha_def"/>
+        <set name="pelArtsByArtistaId" inverse="true">
+            <key>
+                <column name="artista_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.example.PelArt"/>
+        </set>
+        <set name="peliculasByArtistaId" inverse="true">
+            <key>
+                <column name="director_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.example.Peliculas"/>
+        </set>
+    </class>
+</hibernate-mapping>

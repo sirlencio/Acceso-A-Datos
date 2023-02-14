@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.PelArt" table="pel_art" schema="peliculas">
+        <composite-id name="id" class="org.example.PelArtPK">
+            <key-property name="peliculaId" column="pelicula_id"/>
+            <key-property name="artistaId" column="artista_id"/>
+        </composite-id>
+        <many-to-one name="peliculasByPeliculaId" class="org.example.Peliculas" insert="false" update="false">
+            <column name="pelicula_id"/>
+        </many-to-one>
+        <many-to-one name="artistasByArtistaId" class="org.example.Artistas" insert="false" update="false">
+            <column name="artista_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
