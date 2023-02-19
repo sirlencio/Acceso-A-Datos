@@ -16,6 +16,7 @@ public class Ej4 {
 		SAXParser sp = sx.newSAXParser();
 		UserHandler hl = new UserHandler();
 		sp.parse("calendario.xml", hl);
+
 	}
 }
 
